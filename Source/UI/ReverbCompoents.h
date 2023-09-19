@@ -1,0 +1,29 @@
+#pragma once
+
+#include <JuceHeader.h>
+#include "OtherCompoents.h"
+
+//==============================================================================
+/*
+*/
+class ReverbComponent : public OtherCompoents
+{
+public:
+    ReverbComponent(juce::AudioProcessorValueTreeState& apvts, juce::String sizeId, juce::String dampingId, juce::String widthId, juce::String dryId, juce::String wetId, juce::String freezeId);
+    ~ReverbComponent() override;
+
+    void resized() override;
+
+private:
+    SliderWithLabel size;
+    SliderWithLabel damping;
+    SliderWithLabel stereoWidth;
+    SliderWithLabel dry;
+    SliderWithLabel wet;
+    SliderWithLabel freeze;
+
+    static constexpr int dialWidth = 67;
+    static constexpr int dialHeight = 67;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReverbComponent)
+};
